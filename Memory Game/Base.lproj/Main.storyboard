@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Memory_Game" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aaY-3L-PfA">
+                                <rect key="frame" x="209" y="65" width="169" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="169" id="Knq-st-efX"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="4 x 4"/>
+                                    <segment title="6 x 6"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeGameMode:" destination="BYZ-38-t0r" eventType="valueChanged" id="0uY-iD-YJr"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ej5-AU-s35">
+                                <rect key="frame" x="20" y="65" width="93" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="QI5-Vt-5Wi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lo6-0o-f0c">
+                                <rect key="frame" x="20" y="176" width="374" height="374"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" secondItem="lo6-0o-f0c" secondAttribute="width" multiplier="1:1" id="N3o-gR-CGC"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EAr-cy-a8o">
+                                    <size key="itemSize" width="68" height="68"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tileCell" id="pC7-6w-EKw">
+                                        <rect key="frame" x="0.0" y="0.0" width="68" height="68"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Xmz-sc-y4x">
+                                            <rect key="frame" x="0.0" y="0.0" width="68" height="68"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="68" height="68"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Td8-PX-IV1"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="4dN-hU-UHI"/>
+                                </connections>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUY-HP-sOr">
+                                <rect key="frame" x="20" y="560" width="374" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="P8k-8X-tTi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSu-Tf-9km">
+                                <rect key="frame" x="180" y="116" width="39" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="dCV-ph-qyL"/>
+                                </constraints>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" red="0.78834122419999997" green="0.31683522460000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZMK-wf-6YJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ej5-AU-s35" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="21" id="3Tq-28-VHR"/>
+                            <constraint firstItem="eSu-Tf-9km" firstAttribute="top" secondItem="ej5-AU-s35" secondAttribute="bottom" constant="20" id="4sV-vA-Etx"/>
+                            <constraint firstItem="ej5-AU-s35" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="59d-tV-hwn"/>
+                            <constraint firstItem="aaY-3L-PfA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="21" id="6V7-vH-TWM"/>
+                            <constraint firstItem="aaY-3L-PfA" firstAttribute="leading" relation="lessThanOrEqual" secondItem="ej5-AU-s35" secondAttribute="trailing" constant="96" id="D6d-jc-fXB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aaY-3L-PfA" secondAttribute="trailing" constant="36" id="Gdv-nx-GiB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DUY-HP-sOr" secondAttribute="trailing" constant="20" id="IpV-07-zVW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eSu-Tf-9km" secondAttribute="trailing" constant="195" id="Jtv-aS-l73"/>
+                            <constraint firstItem="DUY-HP-sOr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PFI-EA-LTU"/>
+                            <constraint firstItem="eSu-Tf-9km" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="180" id="UNo-fv-OyB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lo6-0o-f0c" secondAttribute="trailing" constant="20" id="aHP-rU-jOr"/>
+                            <constraint firstItem="lo6-0o-f0c" firstAttribute="top" secondItem="eSu-Tf-9km" secondAttribute="bottom" constant="20" id="eoV-mj-foK"/>
+                            <constraint firstItem="lo6-0o-f0c" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="fGr-vp-h1n"/>
+                            <constraint firstItem="DUY-HP-sOr" firstAttribute="top" secondItem="lo6-0o-f0c" secondAttribute="bottom" constant="10" id="mIF-zZ-wyQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gameCollectionView" destination="lo6-0o-f0c" id="Guj-r9-1Jp"/>
+                        <outlet property="gameModeLabel" destination="ej5-AU-s35" id="2FM-Ua-dpd"/>
+                        <outlet property="timerLabel" destination="DUY-HP-sOr" id="IiC-aG-mWL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="71.651785714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
